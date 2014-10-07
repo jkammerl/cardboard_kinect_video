@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>WebRTC video in WebGL shaders</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <script src="js/jquery-1.10.2.min.js"></script>
+
+    <script src="js/Detector.js"></script>
+    <script src='js/dat.gui.min.js'></script>
+    <script src="js/three.min.js"></script>
+
+    <script src="js/webrtc_video.js"></script>
+    <script src="js/webgl_config.js"></script>
+    <script src="js/webgl_video.js"></script>
+
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script type="text/javascript">
+        var demo = new WebGLVideo(document.getElementById('container'));
+    </script>
+</body>
+
+</html>
