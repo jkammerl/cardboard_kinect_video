@@ -1,6 +1,6 @@
-webgl_webrtc_fun
+cardboard_kinect_video
 ================
 
-Using WebRTC video texture in WebGL shader
+3D video streaming to Google cardboard using WebGL
 
-http://kammerl.de/webbrtc_webgl/
+http://kammerl.de/cardboard_kinect_video/
