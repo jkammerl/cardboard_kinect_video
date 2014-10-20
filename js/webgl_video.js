@@ -30,7 +30,7 @@ WebGLVideo.BORDER_CUT = 0.02;
 
 WebGLVideo.FOCAL_LENGTH = 605;
 
-WebGLVideo.VIDEO_DIMENSIONS = 256;
+WebGLVideo.VIDEO_DIMENSIONS = 512;
 
 WebGLVideo.VERTEX_SHADER = 'shaders/vertex.vsh';
 
