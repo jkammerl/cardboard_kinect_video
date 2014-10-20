@@ -196,8 +196,7 @@ WebGLVideo.prototype.render = function () {
 WebGLVideo.prototype.animate = function () {
     if (this.mesh_ && this.videoTexture_ && 
         this.videoEl_ && this.videoEl_.readyState === this.videoEl_.HAVE_ENOUGH_DATA) {
-            this.videoTexture_.needsUpdate = true;
-        }
+        this.videoTexture_.needsUpdate = true;
     }
 
     this.render();
