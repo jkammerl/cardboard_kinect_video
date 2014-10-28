@@ -67,14 +67,19 @@ WebGLVideo.prototype.initWebGL = function (containerEl) {
 
     this.videoEl_ = document.createElement( 'video' );
     this.videoEl_.loop = true;
+    this.videoEl_.autoplay = true;
     this.videoEl_.width = WebGLVideo.VIDEO_DIMENSIONS;
     this.videoEl_.height = WebGLVideo.VIDEO_DIMENSIONS; 
     this.videoEl_.src = 'video/kinect_small.webm';
     this.videoEl_.crossOrigin = 'Anonymous';
     this.videoEl_.setAttribute('crossorigin', 'Anonymous');
-    this.videoEl_.play();
+    this.videoEl_.load();
 
-    this.videoTexture_ = new THREE.Texture(this.videoEl_);
+    this.videoTexture_ = new THREE.Texture();
+    this.videoTexture_.image = this.videoEl_;
+    this.videoTexture_.magFilter = THREE.NearestFilter;
+    this.videoTexture_.minFilter = THREE.NearestFilter;
+    this.videoTexture_.generateMipmaps = false;
     this.videoTexture_.needsUpdate = true;
 
     this.videoAspect_ = this.videoEl_.height / this.videoEl_.width;
@@ -126,6 +131,10 @@ WebGLVideo.prototype.initWebGL = function (containerEl) {
     window.addEventListener('resize', onWindowResize, false);
 
     function fullscreen() {
+      this.videoEl_.loop = true;
+      this.videoEl_.autoplay = true;
+      this.videoEl_.load();
+
       if (containerEl.requestFullscreen) {
         containerEl.requestFullscreen();
       } else if (containerEl.msRequestFullscreen) {
@@ -136,7 +145,8 @@ WebGLVideo.prototype.initWebGL = function (containerEl) {
         containerEl.webkitRequestFullscreen();
       }
     }
-    container.addEventListener('click', fullscreen, false);
+
+    container.addEventListener('click', fullscreen.bind(this), false);
 
     return true;
 }
